@@ -1,0 +1,71 @@
+<%- include("partials/header") %>
+
+<div class="container-fluid new-container">
+    <div class="row justify-content-around align-items-center">
+      <div class="col-lg-5 image-container">
+     <div><a href="/places" ><img class="arrow" height="40" width="30" style="float:left; margin: 0 15px 0 0;" src="/images/arrow.svg"></a>
+                  
+            <h2 class="add-align"  >Edit Place</h2> </div>
+            
+                  </a> 
+            <img class="img-fluid" style="margin-top:120px;" src="/images/travel-illustration.svg"/>
+      </div>
+
+      <div class="col-lg-5">
+            <div class="container-fluid form-class">
+                <form action="/places/<%= place._id %>?_method=PUT" method="POST">
+                    <h4>Add Details about the place where you have visited.</h4>
+                    <br>
+                    <div class="form-group">
+                        <label for="city" class="strong">City</label>
+                        <input type="text" class="form-control" id="city" name="place[name]" value="<%= place.name%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image" class="strong">Photo URL</label>
+                        <input type="text" class="form-control" id="image" name="place[image]" value="<%= place.image%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="strong">Few words about this place</label>
+                        <textarea id="description" class="form-control" name="place[description]" rows="3" required> <%= place.description %> </textarea>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="VisitedCheckbox" name="place[isVisited]" >
+                        <label class="form-check-label strong" for="VisitedCheckbox">VISITED</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="BucketCheckbox" name="place[isBucketlist]" >
+                        <label class="form-check-label strong" for="BucketCheckbox">BUCKET-LIST</label>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group">
+                        <label for="date" class="strong">When did you travel here?</label>
+                        <input type="text" class="form-control" id="date" name="place[date]" value="<%= place.date%>" >
+                    </div>  
+                    <a href="/places" class="cancel">Cancel</a>
+                    <button type="submit" id="submitButton" class="addB float-right" >UPDATE PLACE</button>
+                    <hr>
+                </form>
+                <form action="/places/<%= place._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="delB" id="deleteButton">Delete This Place</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var place = <%- JSON.stringify(place) %>;
+    if(place.isVisited){
+    document.getElementById("VisitedCheckbox").checked = true;
+    }
+    if(place.isBucketlist){
+    document.getElementById("BucketCheckbox").checked = true;
+    }
+</script>
+
+
+
+<%- include("partials/footer") %>

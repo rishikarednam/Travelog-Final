@@ -1,0 +1,67 @@
+<%- include("partials/header") %>
+
+          <div class="jumbotron rounded-0">
+                <div class="row justify-content-center align-items-center">
+                  <div class="col-md-3 align-self-end">
+                    <img class="img-fluid" src="/images/home-illustration.svg">
+                  </div>
+                  <div class="col-md-6">
+                    <p>Sometimes, what matters is to pack your bags and get on a car and travel NON-STOP.</p>
+                    <h3>Explore! The World is Not Enough</h3>
+                  </div>
+                </div>
+          </div>
+          <div id="stripe">
+              <div class="container align-items-center">
+                    <a class="strong btn " id="vis" href="/places">My Visited Places</a>
+                    <a class="strong btn h" id="bucket" href="/places/bucketlist">My Bucket List</a>
+              </div>
+          </div>
+          <div class="container"> 
+            <div class="row justify-content-between">
+                <div class="col-md-3">
+                  <h4>My Bucket List</h4>
+                </div>
+                <div class="col-md-3">
+                  <a class="addB btn b-align" href="/places/new">ADD PLACE</a>
+                </div>
+            </div>
+            <br>
+            <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+              <% places.forEach(function(place){
+                if(place.isBucketlist){
+                if(place.username=currentUser.username){ %>
+                <div class="  col-md-3 col-sm-6">
+                
+                  <div class="thumbnail img-border">
+                    <img class="img-fluid" src="<%= place.image %>"> 
+                    <div class="caption">
+                      <a href="/places/<%= place._id %>/show">
+                        <h6 class="strong"><%= place.name %></h6>
+                      </a>
+                      <p class="date"><%= place.date %></p>
+                    </div>
+                  </div>
+                </div>
+              <% }}}); %> 
+            </div>
+          </div>
+
+          <script>
+
+  <script>
+
+    document.getElementById('vis').onclick = changeColor;   
+
+    function changeColor() {
+        document.body.style.color = "purple";
+        return false;
+    }   
+
+</script>
+
+</script>
+          
+<%- include("partials/footer") %>
+          
+  

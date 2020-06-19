@@ -1,0 +1,77 @@
+<%- include("partials/header") %>
+
+
+<div class="container-fluid new-container">
+    <div class="row justify-content-around align-items-center">
+      <div class="col-lg-5 image-container">
+     <div ><a href="/places" ><img class="arrow" height="40" width="30" style="float:left; margin: 0 15px 0 0;" src="/images/arrow.svg"></a>
+                  
+            <h2 class="add-align"  >Add Place</h2> </div>
+            
+                  </a> 
+            <img class="img-fluid" style="margin-top:120px;" src="/images/travel-illustration.svg"/>
+      </div>
+      <div class="col-lg-5">
+            <div class="container-fluid form-class">
+                <form name="addForm"  action="/places" method="POST">
+                    <h4>Add Details about the place where you have visited.</h4>
+                    <br>
+                    <div class="form-group">
+                        <label for="city" class="strong">Place</label>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="City" >
+                    </div>
+                    <div class="form-group">
+                        <label for="image" class="strong">Photo URL</label>
+                        <input type="text" class="form-control" id="image" name="image" placeholder="Photo URL" >
+                    </div>
+                    <div class="form-group">
+                        <label for="info" class="strong">Few words about this place</label>
+                        <textarea id="info" class="form-control" name="info" rows="3" ></textarea>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="Checkbox1" name="isVisited" value="true">
+                        <label class="form-check-label strong" for="Checkbox1" >VISITED</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="Checkbox2" name="isBucketlist" value="true" onClick="when()">
+                        <label class="form-check-label strong" for="Checkbox2">BUCKET-LIST</label>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group" id="when">
+                        <label for="date" class="strong">When did you travel here?</label>
+                        <input type="text" class="form-control" id="date" name="date" placeholder="Date" >
+                    </div>  
+                    <div id="error" class="delB hide" >All Fields are Required</div>
+                    <button type="button" class="addB a-align" onclick="fields()">ADD PLACE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function when() {
+  var c1 = document.getElementById("Checkbox1");
+  var when = document.getElementById("when");
+  if (c1.checked == true){
+    when.style.display = "block";
+  } else {
+    when.style.display = "none";
+  }
+}
+
+function fields(){
+
+    var place=document.addForm.city.value;  
+    var error = document.getElementById("error");
+    if(place=="" || place==null){
+    error.style.display = "block"
+    } else {
+    error.style.display = "none";
+  }
+}
+</script>
+
+
+<%- include("partials/footer") %>

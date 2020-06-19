@@ -1,0 +1,219 @@
+*{
+    box-sizing: border-box;
+
+}
+
+input{
+    border-radius: 0;
+
+}
+
+.thumbnail img {
+    height:200px;
+    width:100%;
+    margin-bottom:10px;
+}
+
+.delB{padding: 0;
+border: none;
+background: none;
+font-weight: 700;
+color:red;
+}
+
+.cancel{
+    margin-left:175px;
+    color:grey;
+}
+
+.img-pro{
+    margin-left: auto;
+  margin-right: auto;
+}
+
+
+.img-border{
+border: 13px solid white;    
+height:90%;
+float:left;
+}
+
+.entry-body{
+background-color: #0E1331;
+margin:40px auto;
+height:100%;
+width:100%;
+display: flex;
+}
+
+.thumbnail{
+    background-color: white;
+    text-transform: uppercase;
+}
+
+#stripe{
+    background-color: #245A99;
+    height: 49px;
+    margin-bottom: 20px;
+}
+
+body{
+    color:#222C6A;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: #EEEEEE;
+    
+}
+nav{
+    background-color: #0E1331;
+    color: white;
+}
+
+
+
+.jumbotron{
+    background-color: #0E1331;
+    color: white;
+    padding: 0 0;
+    margin-bottom: 5px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+
+.bg-dark{
+    background-color:#0E1331 !important;
+}
+
+.thumbnail{
+    background-color: white;
+    text-transform: uppercase;
+}
+
+#stripe{
+    background-color: #245A99;
+    height: 49px;
+    margin-bottom: 20px;
+}
+
+#stripe a{
+    color:white;
+    padding:0 0;
+    background-color: inherit;
+    border: none;
+    text-transform: uppercase;
+    margin-right: 50px;
+    text-align: center;
+    margin-top: 13px;
+    font-weight: 700;
+     font-size: 15px;
+
+}
+
+.addB{
+    background-color: #0E1331;
+    color:white;
+    border:none;
+}
+
+.date{
+    color:#737FC7;
+    font-size: 14px;
+}
+
+.strong{
+    font-weight: 700;
+}
+
+.form-class{
+    background-color: white;
+    padding: 20px 20px;
+    width: 90%;
+    margin :20px auto;
+}
+
+.form-landing {
+    background-color: white;
+    padding: 20px 0px;
+    width: 90%;
+    margin : 20px auto;
+
+}
+
+.image-container{
+    width: 70%;
+}
+
+.new-container{
+    height:80%;
+    width:80%;
+    margin-top:30px;
+}
+
+textarea{
+    overflow: hidden;
+    resize: none;
+}
+
+.thumbnail h6{
+    color: #222C6A;
+}
+
+.header {
+    background-color: white;
+    padding:0 0;
+    margin:0 auto;
+}
+
+.b-align{
+margin-left:145px;
+}
+
+.a-align{
+    margin-left:270px;
+}
+
+.header button{
+    width:100%;
+    height: 38px;
+    text-align: center;
+}
+
+.main-class {
+    width:50%;
+    height:50%;
+}
+
+.btn-align{
+   margin-right: 0;
+}
+
+.arrow{
+   margin-right:175px;
+}
+
+.add-align{
+  font-size:20;
+  font-weight: 700;
+  margin-right:175px;
+}
+
+.addB:hover{
+color:grey;
+}
+
+.h{
+    color: #55BD84 !important;
+}
+
+.hide{
+    display:none;
+}
+
+.login-forms:first-child{
+margin-right: 1px solid grey;
+}
+
+
+
