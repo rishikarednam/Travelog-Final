@@ -1,5 +1,5 @@
 *{
-    box-sizing: border-box;
+box-sizing: border-box;
 
 }
 
@@ -213,6 +213,26 @@ color:grey;
 
 .login-forms:first-child{
 margin-right: 1px solid grey;
+}
+
+.error-message{
+  color: red;
+  font-weight: 700;
+}
+.hide{
+  display: none
+}
+
+.form-field{
+    border-radius: 0px;
+}
+
+.space{
+    margin-top:15px;
+}
+
+.space-bottom{
+    margin-bottom:15px;
 }
 
 

@@ -22,44 +22,88 @@
                     <div class="col-lg-5 ">
                         <div class="container-fluid form-landing">
                             <br>
-                            <form action="/login" method="POST">
+                            <form action="/login" method="POST" id="login-form">
                                 <h4 class="strong">Login</h2>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                                    <input type="text" class="form-control form-field" id="username" name="username" placeholder="Username" value="" >
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                    <input type="password" class="form-control form-field" id="password" name="password" placeholder="Password" value="" >
                                 </div>
-                                <button class="addB" type="submit">LOG IN</button>
+                                <div id="error" class="error-message hide space-bottom" >All Fields are Required </div>
+                                <button class="addB" type="button" onclick="validateFields('login')">LOG IN</button>
                             </form>
                         </div>
                     </div> 
                     <div class="col-lg-5 ">
                         <div class="container-fluid form-landing">
-                            <form action="/register" method="POST">
+                            <form action="/register" method="POST" id="register-form">
                                 <p>If you don't already have an account register to create your account.</p>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="yourname" name="yourname" placeholder="Your Name" required>
+                                    <input type="text" class="form-control form-field" id="yourname" name="yourname" placeholder="Your Name" >
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email Id" required>
+                                    <input type="text" class="form-control form-field" id="email" name="email" placeholder="Email Id" >
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone No" required>
+                                    <input type="text" class="form-control form-field" id="phone" name="phone" placeholder="Phone No" >
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                                    <input type="text" class="form-control form-field" id="username" name="username" placeholder="Username" >
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                    <input type="password" class="form-control form-field" id="password" name="password" placeholder="Password" >
                                 </div>
-                                <button class="addB" type="submit">REGISTER</button>
+                                <div id="error" class="error-message hide space-bottom" >All Fields are Required </div>
+                                <button class="addB" type="button" onclick="validateFields('register')">REGISTER</button>
                             </form>
                         </div>
                     </div> 
                 </div>
             </div>
         </div>    
+
+<script>
+
+function validateFields(type){
+    var emptyField=false;
+      if(type === "login"){
+
+   var form = $("#login-form"),
+       fields = $("#login-form .form-control"),
+       errorMessage=$("#login-form .error-message");
+   }
+   else{
+        var form = $("#register-form"),
+        fields = $("#register-form .form-field"),
+        errorMessage=$("#register-form .error-message");}
+
+        for(let i=0; i<fields.length ;i++){
+        if(fields[i].value === ""){
+        emptyField = true;
+        break;
+    }
+  }
+
+
+
+  console.log(emptyField);
+  if(emptyField){
+    $(errorMessage).removeClass("hide");
+  }else{
+    $(errorMessage).addClass("hide");
+    form.submit();
+  }
+  
+
+}
+
+
+
+
+
+
+         </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

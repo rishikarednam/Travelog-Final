@@ -13,37 +13,36 @@
       </div>
       <div class="col-lg-5">
             <div class="container-fluid form-class">
-                <form name="addForm"  action="/places" method="POST">
+                <form name="addForm" id="add-form" action="/places" method="POST">
                     <h4>Add Details about the place where you have visited.</h4>
                     <br>
                     <div class="form-group">
-                        <label for="city" class="strong">Place</label>
-                        <input type="text" class="form-control" id="city" name="city" placeholder="City" >
+                        <label for="city" class="strong ">Place</label>
+                        <input type="text" class="form-control form-field" id="city" name="name" placeholder="City" >
                     </div>
                     <div class="form-group">
                         <label for="image" class="strong">Photo URL</label>
-                        <input type="text" class="form-control" id="image" name="image" placeholder="Photo URL" >
+                        <input type="text" class="form-control form-field" id="image" name="image" placeholder="Photo URL" >
                     </div>
                     <div class="form-group">
                         <label for="info" class="strong">Few words about this place</label>
-                        <textarea id="info" class="form-control" name="info" rows="3" ></textarea>
+                        <textarea id="info" class="form-control form-field " name="info" rows="3" ></textarea>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Checkbox1" name="isVisited" value="true">
+                        <input class="form-check-input" type="checkbox" id="Checkbox1" name="isVisited" value="true" onClick="hide()">
                         <label class="form-check-label strong" for="Checkbox1" >VISITED</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Checkbox2" name="isBucketlist" value="true" onClick="when()">
+                        <input class="form-check-input" type="checkbox" id="Checkbox2" name="isBucketlist" value="true" >
                         <label class="form-check-label strong" for="Checkbox2">BUCKET-LIST</label>
                     </div>
-                    <br>
-                    <br>
-                    <div class="form-group" id="when">
-                        <label for="date" class="strong">When did you travel here?</label>
-                        <input type="text" class="form-control" id="date" name="date" placeholder="Date" >
+                    
+                    <div class="form-group hide space" id="date">
+                        <label for="date" class="strong description">When did you travel here?</label>
+                        <input type="text" class="form-control "  name="date" placeholder="Date" >
                     </div>  
-                    <div id="error" class="delB hide" >All Fields are Required</div>
-                    <button type="button" class="addB a-align" onclick="fields()">ADD PLACE</button>
+                    <div id="error" class="error-message hide" >All Fields are Required</div>
+                    <button type="button" id="submit-btn" class="addB a-align" onclick="validateFields()">ADD PLACE</button>
                 </form>
             </div>
         </div>
@@ -51,25 +50,37 @@
 </div>
 
 <script>
-function when() {
+function hide() {
   var c1 = document.getElementById("Checkbox1");
-  var when = document.getElementById("when");
+  var date = document.getElementById("date");
   if (c1.checked == true){
-    when.style.display = "block";
+   date.classList && date.classList.remove("hide");
   } else {
-    when.style.display = "none";
+    date.classList && date.classList.add("hide");
   }
 }
 
-function fields(){
+function validateFields(){
 
-    var place=document.addForm.city.value;  
-    var error = document.getElementById("error");
-    if(place=="" || place==null){
-    error.style.display = "block"
-    } else {
-    error.style.display = "none";
+    var form = document.getElementById("add-form"),
+        fields = document.getElementsByClassName("form-field"),
+      errorMessage=document.getElementsByClassName("error-message")[0],
+       emptyField = false;
+  console.log(fields);
+  for(let i=0; i<fields.length ;i++){
+    if(fields[i].value === ""){
+      emptyField = true;
+      break;
+    }
   }
+  if(emptyField){
+    errorMessage.classList.remove("hide");
+  }else{
+    errorMessage.classList.add("hide");
+    form.submit();
+  }
+  
+
 }
 </script>
 

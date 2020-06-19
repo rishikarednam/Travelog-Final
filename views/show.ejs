@@ -18,29 +18,28 @@
                     <br>
                     <div class="form-group">
                         <label for="city" class="strong">City</label>
-                        <input type="text" class="form-control" id="city" name="place[name]" value="<%= place.name%>" required>
+                        <input type="text" class="form-control form-field" id="city" name="place[name]" value="<%= place.name%>" required>
                     </div>
                     <div class="form-group">
                         <label for="image" class="strong">Photo URL</label>
-                        <input type="text" class="form-control" id="image" name="place[image]" value="<%= place.image%>" required>
+                        <input type="text" class="form-control form-field" id="image" name="place[image]" value="<%= place.image%>" required>
                     </div>
                     <div class="form-group">
                         <label for="description" class="strong">Few words about this place</label>
-                        <textarea id="description" class="form-control" name="place[description]" rows="3" required> <%= place.description %> </textarea>
+                        <textarea id="description" class="form-control form-field" name="place[description]" rows="3" required> <%= place.description %> </textarea>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="VisitedCheckbox" name="place[isVisited]" >
                         <label class="form-check-label strong" for="VisitedCheckbox">VISITED</label>
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div class="form-check form-check-inline space-bottom">
                         <input class="form-check-input" type="checkbox" id="BucketCheckbox" name="place[isBucketlist]" >
                         <label class="form-check-label strong" for="BucketCheckbox">BUCKET-LIST</label>
                     </div>
-                    <br>
-                    <br>
-                    <div class="form-group">
+                    
+                    <div class="form-group hide space" id="date">
                         <label for="date" class="strong">When did you travel here?</label>
-                        <input type="text" class="form-control" id="date" name="place[date]" value="<%= place.date%>" >
+                        <input type="text" class="form-control form-field" id="date" name="place[date]" value="<%= place.date%>" >
                     </div>  
                     <a href="/places" class="cancel">Cancel</a>
                     <button type="submit" id="submitButton" class="addB float-right" >UPDATE PLACE</button>
@@ -55,15 +54,33 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 <script>
     var place = <%- JSON.stringify(place) %>;
+    var VisitedCheckbox = $("#VisitedCheckbox");
+    var BucketCheckbox = $("#BucketCheckbox");
     if(place.isVisited){
-    document.getElementById("VisitedCheckbox").checked = true;
+    VisitedCheckbox[0].checked=true;
     }
     if(place.isBucketlist){
-    document.getElementById("BucketCheckbox").checked = true;
+    BucketCheckbox[0].checked = true;
     }
+    
+   
+
+  
+  
+  
+  var date = $("#date");
+  if ($('#VisitedCheckbox').is(":checked"))
+{
+   date && date.removeClass("hide");
+  } else {
+    date && date.addClass("hide");
+  }
+  
+
 </script>
 
 

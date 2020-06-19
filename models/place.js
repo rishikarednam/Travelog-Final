@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var passportLocalMongoose = require("passport-local-mongoose");
 
 var placeSchema = new mongoose.Schema({
     name: String,

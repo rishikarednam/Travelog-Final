@@ -23,6 +23,7 @@ User.register(newUser, req.body.password, function(err, user){
 			console.log(err);
 			return res.render("landing");
 		}
+
 		passport.authenticate("local")(req ,res, function(){
             
             res.redirect("/places");
